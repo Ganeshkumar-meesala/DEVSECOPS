@@ -1,0 +1,37 @@
+python
+
+Verify
+
+Open In Editor
+Edit
+Copy code
+def is_prime(n):
+    """
+    Checks if a number is prime.
+    """
+    if n <= 1:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    max_divisor = int(n**0.5) + 1
+    for d in range(3, max_divisor, 2):
+        if n % d == 0:
+            return False
+    return True
+
+def generate_primes(up_to):
+    """
+    Generates prime numbers up to a given number.
+    """
+    primes = []
+    for num in range(2, up_to + 1):
+        if is_prime(num):
+            primes.append(num)
+    return primes
+
+# Example usage:
+up_to = 100
+primes = generate_primes(up_to)
+print(f"Prime numbers up to {up_to}: {primes}")
